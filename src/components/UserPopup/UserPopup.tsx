@@ -1,7 +1,14 @@
 import CloseIcon from '../../assets/CloseIcon/CloseIcon';
-import { FlexBox, LightText, RegularText, Title } from '../../styles/common';
+import { FlexBox, Title } from '../../styles/common';
 import { UserType } from '../../types/user';
-import { Overlay, PopupContainer, Table, TableCell } from './style';
+import {
+  Overlay,
+  PopupContainer,
+  PopupLightText,
+  PopupRegularText,
+  Table,
+  TableCell,
+} from './style';
 
 interface UserPopupProps {
   user: UserType | undefined;
@@ -18,7 +25,7 @@ const UserPopup: React.FC<UserPopupProps> = ({ user, onClose }) => {
   return (
     <Overlay onClick={onClose}>
       <PopupContainer onClick={(e: any) => e.stopPropagation()}>
-        <FlexBox $justifyContent="space-between" alignItems="center">
+        <FlexBox justifycontent="space-between" alignItems="center">
           <Title>{user?.name}</Title>
           <CloseIcon onClick={onClose} />
         </FlexBox>
@@ -27,20 +34,18 @@ const UserPopup: React.FC<UserPopupProps> = ({ user, onClose }) => {
             {userDetails.map(({ label, value }, index) => (
               <tr key={index}>
                 <TableCell>
-                  <RegularText fontSize="1.125rem">{label}:</RegularText>
+                  <PopupRegularText>{label}:</PopupRegularText>
                 </TableCell>
                 <TableCell>
-                  <LightText fontSize="1.125rem">{value}</LightText>
+                  <PopupLightText>{value}</PopupLightText>
                 </TableCell>
               </tr>
             ))}
           </tbody>
         </Table>
         <FlexBox flexDirection="column" gap="12px">
-          <RegularText fontSize="1.125rem">
-            Дополнительная информация:
-          </RegularText>
-          <LightText fontSize="1.125rem">Адрес: {user?.address}</LightText>
+          <PopupRegularText>Дополнительная информация:</PopupRegularText>
+          <PopupLightText>Адрес: {user?.address}</PopupLightText>
         </FlexBox>
       </PopupContainer>
     </Overlay>

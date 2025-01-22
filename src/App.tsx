@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { getAllUsers, searchUsers } from './api/requests';
 import { SearchInput } from './components/SearchInput';
 import { UserCard } from './components/UserCard';

@@ -1,6 +1,7 @@
 import styled, { createGlobalStyle } from 'styled-components';
 
 export const Container = styled.div`
+  box-sizing: content-box;
   display: flex;
   flex-direction: column;
   gap: 32px;
@@ -53,20 +54,19 @@ export const FlexBox = styled.div.withConfig({
   flex-wrap: ${({ flexWrap = 'nowrap' }) => flexWrap};
 `;
 
-interface GridBoxProps {
-  gridTemplateColumns?: string;
-  gridGap?: string;
-  justifyItems?: string;
-  alignItems?: string;
-}
-
-export const GridBox = styled.div<GridBoxProps>`
+export const GridBox = styled.div`
   display: grid;
-  grid-template-columns: ${({ gridTemplateColumns = 'repeat(3, 1fr)' }) =>
-    gridTemplateColumns};
-  gap: ${({ gridGap = '25px' }) => gridGap};
-  justify-items: ${({ justifyItems = 'stretch' }) => justifyItems};
-  align-items: ${({ alignItems = 'stretch' }) => alignItems};
+  width: 100%;
+  gap: 25px;
+  grid-template-columns: repeat(3, 1fr);
+
+  @media (max-width: 1250px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (max-width: 840px) {
+    grid-template-columns: 1fr;
+  }
 `;
 
 export const GlobalStyle = createGlobalStyle`
@@ -90,5 +90,8 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin:0 ;
 
+  }
+  div{
+    box-sizing: border-box;
   }
 `;

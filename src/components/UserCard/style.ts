@@ -6,7 +6,8 @@ export const CardWrapper = styled.div`
   gap: 24px;
   padding: 24px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
-  min-height: 357px;
+  min-height: 314px;
+  min-width: 357px;
   border-radius: 16px;
   cursor: pointer;
   transition: all ease 0.3s;

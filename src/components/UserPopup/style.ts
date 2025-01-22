@@ -1,6 +1,8 @@
 import styled from 'styled-components';
+import { LightText, RegularText } from '../../styles/common';
 
 export const Overlay = styled.div`
+  padding: 25px;
   position: fixed;
   top: 0;
   left: 0;
@@ -36,4 +38,10 @@ export const TableCell = styled.td`
   &:first-child {
     padding-right: 20px;
   }
+`;
+export const PopupRegularText = styled(RegularText)`
+  font-size: 1.125rem;
+`;
+export const PopupLightText = styled(LightText)`
+  font-size: 1.125rem;
 `;
